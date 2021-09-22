@@ -1,0 +1,75 @@
+* {
+  margin: 0;
+  padding: 0;
+  /* font-family: Arial, Helvetica, sans-serif; */
+  font-size: 12px;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  /* Remove scrollbar space */
+  background: transparent;
+  /* Optional: just make scrollbar invisible */
+}
+
+body {
+  height: 100vh;
+  width: 100%;
+}
+
+/************************************** NAVBAR CUSTOM ************************************************/
+.nav-wrapper {
+  /* position: relative !important; */
+  position: absolute!important;
+  display: block;
+  /* overflow: hidden; */
+  top: 0;
+}
+
+nav {
+  /* position: relative !important; */
+  position: absolute!important;
+  top: 0;
+}
+
+nav a {
+  color: #fff !important;
+}
+
+.menu {
+  margin-bottom: 0;
+}
+
+main {
+  padding-top: 3%;
+}
+
+/************************************** TEXT CONTAINER **********************************************/
+.container {
+  font-family: "Raleway", sans-serif;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  position: absolute;
+  top: 100px;
+  left: 30px;
+  right: 30px;
+  /* overflow: auto; */
+  /* margin-top: 10%; */
+}
+
+.input-group-btn {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn {
+  background-color: #333;
+  border: #333;
+  color: #fff;
+  margin: 0;
+}
+
+.btn :hover {
+  /* color: #fff !important; */
+  background-color: #ccc !important;
+}
