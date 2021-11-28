@@ -16,6 +16,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Merriweather+Sans:wght@300&family=Montserrat&display=swap" rel="stylesheet">
   <!-- fontawesome -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+  <script src="../JS/validation.js" defer></script>
 </head>
 
 <body>
@@ -85,7 +86,8 @@
       </div>
       <div class="textbox">
         <i class="fas fa-at"></i>
-        <input type="text" placeholder="Username" name="username" id="username" required>
+        <input type="text" id="username" placeholder="Username" name="username" id="username" required>
+        <span id="lblError" style="color: red"></span>
       </div>
       <div class="textbox">
         <i class="fas fa-key"></i>
