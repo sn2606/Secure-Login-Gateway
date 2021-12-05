@@ -59,6 +59,12 @@
 
 Existing web applications vulnerabilities jeopardize the regular operation of information systems. SQL injection is the most prevalent Web system vulnerability. SQL injection is a major danger that can be used to steal sensitive information from users. OWASP classifies it as one of the most dangerous security threats. It has always been at the top of the OWASP Top 10 exploits since it is simple to implement and extremely hazardous. Even after taking proper precautions, there can still be possibilities of a back door to exploit the database information. It is a big threat to web-based applications and hackers can hack their way through to modify and delete data as per need. There are many ways to perform SQL injection and several prevention techniques as well. In this project, we are going to demonstrate the whole process from attack to its prevention.
 
+* Escaping is implemented with Knuth Morris Pratt pattern matching algorithm
+* Prepared statements are used everywhere
+* Validation at every step
+* No sensitive DB errors are printed anywhere
+* (MySQL String Literals documentation)[https://dev.mysql.com/doc/refman/8.0/en/string-literals.html] is referred to tailor the escaping function
+
 Database Table
 
 ![Database Screenshot][db-image]
