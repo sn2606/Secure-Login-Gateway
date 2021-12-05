@@ -30,11 +30,14 @@
 
   if (isset($_POST['login'])) {
     $username = mysqli_real_escape_string($conn, $_POST['username']);
-    echo $username;
+    // echo $username;
     $password = mysqli_real_escape_string($conn, $_POST['password']);
 
-    $userquery = "SELECT * FROM users WHERE username = '$username'";
-    $userres = $conn->query($userquery);
+    $userquery = "SELECT * FROM users WHERE username = ?";
+    $stmt = $conn->prepare($userquery);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $userres = $stmt->get_result();
 
     if (!$userres->num_rows) {
   ?>

@@ -41,11 +41,17 @@
     $pass = password_hash($password, PASSWORD_BCRYPT);
     $cpass = password_hash($cpassword, PASSWORD_BCRYPT);
 
-    $emailquery = "SELECT * FROM users WHERE email = '$email'";
-    $emailres = $conn->query($emailquery);
+    $emailquery = "SELECT * FROM users WHERE email = ?";
+    $stmt = $conn->prepare($emailquery);
+    $stmt->bind_param("s", $email);
+    $stmt->execute();
+    $emailres = $stmt->get_result();
 
-    $userquery = "SELECT * FROM users WHERE username = '$username'";
-    $userres = $conn->query($userquery);
+    $userquery = "SELECT * FROM users WHERE username = ?";
+    $stmt = $conn->prepare($userquery);
+    $stmt->bind_param("s", $username);
+    $stmt->execute();
+    $userres = $stmt->get_result();
 
     if ($emailres->num_rows > 0) {
       echo "Email already exists.";
@@ -53,23 +59,28 @@
       echo "User already exists.";
     } else {
       if ($password === $cpassword) {
-        $sql = "INSERT INTO users(name, email, username, password) VALUES('$name', '$email', '$username', '$pass')";
-        $result = $conn->query($sql);
-        $sql = "SELECT user_id FROM users WHERE username='$username'";
-        $result = $conn->query($sql);
+        $sql = "INSERT INTO users(name, email, username, password) VALUES(?, ?, ?, ?)";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("ssss", $name, $email, $username, $pass);
+        $stmt->execute();
+        $stmt->close();
+        $sql = "SELECT user_id FROM users WHERE username=?";
+        $stmt = $conn->prepare($sql);
+        $stmt->bind_param("s", $username);
+        $stmt->execute();
+        $result = $stmt->get_result();
         if ($result->num_rows > 0) {
           while($row = $result->fetch_assoc()) {
             $id = $row['user_id'];
-            $sql = "INSERT into notifications(user_id, notification) VALUES('$id', 'Welcome to TravelLog')";
-            $res = $conn->query($sql);
           }
         }
+        $stmt->close();
         redirect_to("login.php");
       } else {
         echo "Passwords not matching.";
       }
     }
-    $conn->close();
+    $stmt->close();
   }
   ?>
 
