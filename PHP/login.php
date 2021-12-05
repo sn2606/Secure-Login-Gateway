@@ -32,7 +32,6 @@
   if (isset($_POST['login'])) {
     $username = escape_string($_POST['username']);
     $password = escape_string($_POST['password']);
-    echo $password;
 
     $userquery = "SELECT * FROM users WHERE username = ?";
     $stmt = $conn->prepare($userquery);
