@@ -81,6 +81,8 @@ Database Table
 
 To get a local copy up and running follow these simple example steps.
 
+`Note - vulnerable-gateway directory has an example for a login system vulnerable to sql injection attacks`
+
 ### Prerequisites
 
 1. XAMPP
@@ -133,11 +135,10 @@ Don't forget to give the project a star! Thanks again!
 ## Contact
 
 * Swaranjana Nayak - swaranjananayak@gmail.com
+* Rishabh Khunt - rishabhkhunt3@gmail.com
 * Project Link: [Secure-Login-Gateway](https://github.com/sn2606/Secure-Login-Gateway)
 
 <p align="right">(<a href="#top">back to top</a>)</p>
-
-#
 
 <!-- ACKNOWLEDGMENTS -->
 <!-- ## Acknowledgments
