@@ -27,16 +27,17 @@
 
   <?php
   require_once "functions.php";
+  include "kmp.php";
   ?>
 
   <?php
   dbConnect();
   if (isset($_POST['signup'])) {
-    $name = mysqli_real_escape_string($conn, $_POST['name']);
-    $email = mysqli_real_escape_string($conn, $_POST['email']);
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
-    $cpassword = mysqli_real_escape_string($conn, $_POST['confirm']);
+    $name = escape_string($_POST['name']);
+    $email = escape_string($_POST['email']);
+    $username = escape_string($_POST['username']);
+    $password = escape_string($_POST['password']);
+    $cpassword = escape_string($_POST['confirm']);
 
     $pass = password_hash($password, PASSWORD_BCRYPT);
     $cpass = password_hash($cpassword, PASSWORD_BCRYPT);

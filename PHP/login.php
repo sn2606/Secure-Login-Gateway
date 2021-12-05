@@ -20,6 +20,7 @@
 <body>
   <?php
   require_once "functions.php";
+  include "kmp.php";
   ?>
 
   <!-- title of website -->
@@ -29,9 +30,9 @@
   dbConnect();
 
   if (isset($_POST['login'])) {
-    $username = mysqli_real_escape_string($conn, $_POST['username']);
-    // echo $username;
-    $password = mysqli_real_escape_string($conn, $_POST['password']);
+    $username = escape_string($_POST['username']);
+    $password = escape_string($_POST['password']);
+    echo $password;
 
     $userquery = "SELECT * FROM users WHERE username = ?";
     $stmt = $conn->prepare($userquery);
