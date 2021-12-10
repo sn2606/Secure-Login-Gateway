@@ -63,7 +63,7 @@ Existing web applications vulnerabilities jeopardize the regular operation of in
 * Prepared statements are used everywhere
 * Validation at every step
 * No sensitive DB errors are printed anywhere
-* (MySQL String Literals documentation)[https://dev.mysql.com/doc/refman/8.0/en/string-literals.html] is referred to tailor the escaping function
+* [MySQL String Literals documentation](https://dev.mysql.com/doc/refman/8.0/en/string-literals.html) is referred to tailor the escaping function
 
 Database Table
 
